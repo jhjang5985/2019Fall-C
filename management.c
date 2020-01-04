@@ -23,7 +23,7 @@ struct {
 
 void close(void)
 {
-    printf("\n\n\n\nÀÚ½ÅÀÇ ÆÀ Á¤º¸ ÀÛ¼º");
+    printf("\n\n\n\nìì‹ ì˜ íŒ€ ì •ë³´ ì‘ì„±");
 }
 
 void fordelay(int j)
@@ -41,41 +41,41 @@ void new_acc()
     ptr=fopen("record.dat","a+");
     account_no:
     system("cls");
-    printf("\t\t\t record¿¡ ±â·Ï Ãß°¡ ");
-    printf("\n°èÁ¤ ¹øÈ£ ÀÔ·Â:");
+    printf("\t\t\t recordì— ê¸°ë¡ ì¶”ê°€ ");
+    printf("\nê³„ì • ë²ˆí˜¸ ì…ë ¥:");
     scanf("%d",&check.acc_no);
     while(fscanf(ptr,"%d %s %d/%d/%d %d %s %s\n",&add.acc_no,add.name,&add.dob.month,&add.dob.day,&add.dob.year,&add.age,add.address,add.phone)!=EOF)
     {
         if (check.acc_no==add.acc_no)
             {
-				printf("±âÁ¸¿¡ Á¸ÀçÇÏ´Â °èÁ¤ ¹øÈ£ ÀÔ´Ï´Ù! ´Ù¸¥ ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä");
+				printf("ê¸°ì¡´ì— ì¡´ì¬í•˜ëŠ” ê³„ì • ë²ˆí˜¸ ì…ë‹ˆë‹¤! ë‹¤ë¥¸ ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”");
                 goto account_no;
             }
     }
     add.acc_no=check.acc_no;
-    printf("\nÀÌ¸§:");
+    printf("\nì´ë¦„:");
     scanf("%s",add.name);
-    printf("\n»ıÀÏ(mm/dd/yyyy):");
+    printf("\nìƒì¼(mm/dd/yyyy):");
     scanf("%d/%d/%d",&add.dob.month,&add.dob.day,&add.dob.year);
-    printf("\n³ªÀÌ:");
+    printf("\në‚˜ì´:");
     scanf("%d",&add.age);
-    printf("\nÁÖ¼Ò:");
+    printf("\nì£¼ì†Œ:");
     scanf("%s",add.address);
-    printf("\nÀüÈ­¹øÈ£: ");
+    printf("\nì „í™”ë²ˆí˜¸: ");
     scanf("%s",add.phone);
 
     
 	fprintf(ptr,"%d %s %d/%d/%d %d %s %s\n",add.acc_no,add.name,add.dob.month,add.dob.day,add.dob.year,add.age,add.address,add.phone);
     fclose(ptr);
-    printf("\n°èÁ¤ÀÌ ¼º°øÀûÀ¸·Î »ı¼ºµÇ¾ú½À´Ï´Ù.");
+    printf("\nê³„ì •ì´ ì„±ê³µì ìœ¼ë¡œ ìƒì„±ë˜ì—ˆìŠµë‹ˆë‹¤.");
     
 	while(1){
-		printf("\n\n¸ŞÀÎ ¸Ş´º·Î °¡·Á¸é 1, Á¾·áÇÏ·Á¸é 0À» ´­·¯ÁÖ¼¼¿ä:");
+		printf("\n\në©”ì¸ ë©”ë‰´ë¡œ ê°€ë ¤ë©´ 1, ì¢…ë£Œí•˜ë ¤ë©´ 0ì„ ëˆŒëŸ¬ì£¼ì„¸ìš”:");
     	scanf("%d",&main_exit);
     	system("cls");
     	if((main_exit == 1) || (main_exit == 0))
     		break;
-    	printf("\n0°ú 1Áß ÇÏ³ª¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!\a");
+    	printf("\n0ê³¼ 1ì¤‘ í•˜ë‚˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”!\a");
 	}
     if (main_exit==1)
         menu();
@@ -89,7 +89,7 @@ void view_list()
     view=fopen("record.dat","r");
     int test=0;
     system("cls");
-    printf("\nACC. NO.\tÀÌ¸§\t\t\tÁÖ¼Ò\t\t\tÀüÈ­¹øÈ£\n");
+    printf("\nACC. NO.\tì´ë¦„\t\t\tì£¼ì†Œ\t\t\tì „í™”ë²ˆí˜¸\n");
 
     while(fscanf(view,"%d %s %d/%d/%d %d %s %s",&add.acc_no,add.name,&add.dob.month,&add.dob.day,&add.dob.year,&add.age,add.address,add.phone)!=EOF)
 	{
@@ -101,17 +101,17 @@ void view_list()
     if (test==0)
     {
 		system("cls");
-        printf("\n±â·ÏµÈ ³»¿ëÀÌ ¾ø½À´Ï´Ù!\n");
+        printf("\nê¸°ë¡ëœ ë‚´ìš©ì´ ì—†ìŠµë‹ˆë‹¤!\n");
 	}
 
 	while(1)
 	{
-		printf("\n\n¸ŞÀÎ ¸Ş´º·Î °¡·Á¸é 1, Á¾·áÇÏ·Á¸é 0À» ´­·¯ÁÖ¼¼¿ä:");
+		printf("\n\në©”ì¸ ë©”ë‰´ë¡œ ê°€ë ¤ë©´ 1, ì¢…ë£Œí•˜ë ¤ë©´ 0ì„ ëˆŒëŸ¬ì£¼ì„¸ìš”:");
     	scanf("%d",&main_exit);
     	system("cls");
     	if((main_exit == 1) || (main_exit == 0))
     		break;
-    	printf("\n0°ú 1Áß ÇÏ³ª¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!\a");
+    	printf("\n0ê³¼ 1ì¤‘ í•˜ë‚˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”!\a");
 	}
     if (main_exit==1)
         menu();
@@ -121,6 +121,7 @@ void view_list()
 
 void edit(void)
 {
+	// ì¶”ê°€í•œ ë‚´ìš©ì…ë‹ˆë‹¤.
 	return;
 }
 
@@ -130,7 +131,7 @@ void erase(void)
     int test=0;
     old=fopen("record.dat","r");
     newrec=fopen("new.dat","w");
-    printf("Áö¿ï °í°´ÀÇ °èÁ¤ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä:");
+    printf("ì§€ìš¸ ê³ ê°ì˜ ê³„ì • ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”:");
     scanf("%d",&rem.acc_no);
     while (fscanf(old,"%d %s %d/%d/%d %d %s %s",&add.acc_no,add.name,&add.dob.month,&add.dob.day,&add.dob.year,&add.age,add.address,add.phone)!=EOF)
    {
@@ -140,7 +141,7 @@ void erase(void)
         else
         {
 			test++;
-            printf("\n¼º°øÀûÀ¸·Î »èÁ¦µÇ¾ú½À´Ï´Ù!\n");
+            printf("\nì„±ê³µì ìœ¼ë¡œ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤!\n");
         }
    }
    fclose(old);
@@ -149,9 +150,9 @@ void erase(void)
    rename("new.dat","record.dat");
    if(test==0)
 	{
-        printf("\nÀÔ·ÂÇÏ½Å °èÁ¤ ¹øÈ£ÀÇ °í°´ÀÌ ¹ß°ßµÇÁö ¾Ê¾Ò½À´Ï´Ù!!\a\a\a");
+        printf("\nì…ë ¥í•˜ì‹  ê³„ì • ë²ˆí˜¸ì˜ ê³ ê°ì´ ë°œê²¬ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤!!\a\a\a");
         erase_invalid:
-        printf("\n´Ù½Ã ½ÃµµÇÏ·Á¸é 0, ¸ŞÀÎ ¸Ş´º·Î °¡·Á¸é 1, Á¾·áÇÏ·Á¸é ´Ù¸¥ Å°¸¦ ´­·¯ÁÖ¼¼¿ä:");
+        printf("\në‹¤ì‹œ ì‹œë„í•˜ë ¤ë©´ 0, ë©”ì¸ ë©”ë‰´ë¡œ ê°€ë ¤ë©´ 1, ì¢…ë£Œí•˜ë ¤ë©´ ë‹¤ë¥¸ í‚¤ë¥¼ ëˆŒëŸ¬ì£¼ì„¸ìš”:");
         scanf("%d",&main_exit);
         if(main_exit==0)
             erase();
@@ -162,7 +163,7 @@ void erase(void)
     }
     else
     {
-		printf("\n¸ŞÀÎ ¸Ş´º·Î °¡·Á¸é 1, Á¾·áÇÏ·Á¸é ´Ù¸¥ Å°¸¦ ´­·¯ÁÖ¼¼¿ä:");
+		printf("\në©”ì¸ ë©”ë‰´ë¡œ ê°€ë ¤ë©´ 1, ì¢…ë£Œí•˜ë ¤ë©´ ë‹¤ë¥¸ í‚¤ë¥¼ ëˆŒëŸ¬ì£¼ì„¸ìš”:");
 	    scanf("%d",&main_exit);
 	    system("cls");
 	    if (main_exit==1)
@@ -177,19 +178,19 @@ void menu(void)
 {
     int choice;
     system("cls");
-    printf("\n\n\t\t\t °ü¸® ½Ã½ºÅÛ\n");
-    printf("\n\n\t\t1. °èÁ¤ »ı¼ºÇÏ±â\n");
-	printf("\t\t2. ±âÁ¸ °èÁ¤ »èÁ¦ÇÏ±â\n");
-	printf("\t\t3. ÀüÃ¼ °èÁ¤ Á¤º¸º¸±â\n");
+    printf("\n\n\t\t\t ê´€ë¦¬ ì‹œìŠ¤í…œ\n");
+    printf("\n\n\t\t1. ê³„ì • ìƒì„±í•˜ê¸°\n");
+	printf("\t\t2. ê¸°ì¡´ ê³„ì • ì‚­ì œí•˜ê¸°\n");
+	printf("\t\t3. ì „ì²´ ê³„ì • ì •ë³´ë³´ê¸°\n");
 
-	//Á÷Á¢ ±¸ÇöÇØº¸±â 
-	printf("\t\t4. °èÁ¤ Á¤º¸ ¾÷µ¥ÀÌÆ®ÇÏ±â\n");
+	//ì§ì ‘ êµ¬í˜„í•´ë³´ê¸° 
+	printf("\t\t4. ê³„ì • ì •ë³´ ì—…ë°ì´íŠ¸í•˜ê¸°\n");
 
-	//Ãß°¡·Î ÀÚ½Å¸¸ÀÇ ±â´É 2°³ ÀÌ»ó ±â´É ±¸ÇöÇÏ±â 
-	printf("\t\t5. ³»°¡ ±¸ÇöÇÑ ±â´É\n");
-	printf("\t\t6. ³»°¡ ±¸ÇöÇÑ ±â´É\n");
-	printf("\t\t7.Á¾·á\n\n\n\n\n");
-	printf("\t\t ¼±ÅÃ:");
+	//ì¶”ê°€ë¡œ ìì‹ ë§Œì˜ ê¸°ëŠ¥ 2ê°œ ì´ìƒ ê¸°ëŠ¥ êµ¬í˜„í•˜ê¸° 
+	printf("\t\t5. ë‚´ê°€ êµ¬í˜„í•œ ê¸°ëŠ¥\n");
+	printf("\t\t6. ë‚´ê°€ êµ¬í˜„í•œ ê¸°ëŠ¥\n");
+	printf("\t\t7.ì¢…ë£Œ\n\n\n\n\n");
+	printf("\t\t ì„ íƒ:");
     scanf("%d",&choice);
 
     system("cls");
@@ -208,10 +209,10 @@ void menu(void)
 			edit();
 	        break;
         case 5:
-        	//Ãß°¡ÇÒ ÇÔ¼ö 
+        	//ì¶”ê°€í•  í•¨ìˆ˜ 
         	break;
         case 6:
-        	//Ãß°¡ÇÒ ÇÔ¼ö 
+        	//ì¶”ê°€í•  í•¨ìˆ˜ 
         	break;
         case 7:
 			close();
