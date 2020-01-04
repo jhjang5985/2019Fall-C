@@ -121,7 +121,45 @@ void view_list()
 
 void edit(void)
 {
-	// 추가한 내용입니다.
+	FILE* old, * newrec;
+	int test = 0;
+	old = fopen("record.dat", "r");
+	newrec = fopen("new.dat", "w");
+	printf("수정할 고객의 계정 번호를 입력하세요:");
+	scanf("%d", &rem.acc_no);
+	while (fscanf(old, "%d %s %d/%d/%d %d %s %s", &add.acc_no, add.name, &add.dob.month, &add.dob.day, &add.dob.year, &add.age, add.address, add.phone) != EOF)
+	{
+		if (add.acc_no != rem.acc_no)
+			fprintf(newrec, "%d %s %d/%d/%d %d %s %s\n", add.acc_no, add.name, add.dob.month, add.dob.day, add.dob.year, add.age, add.address, add.phone);
+
+		else
+		{
+			printf("이름을 입력하세요: ");
+			scanf("%s", &upd.name);
+			clearBuffer();
+			printf("날짜를 입력하세요: ");
+			scanf("%d %d %d", &upd.dob.year, &upd.dob.month, &upd.dob.day);
+			clearBuffer();
+			printf("나이를 입력하세요: ");
+			scanf("%d", &upd.age);
+			clearBuffer();
+			printf("주소를 입력하세요: ");
+			scanf("%s", &upd.address);
+			clearBuffer();
+			printf("폰을 입력하세요: ");
+			scanf("%s", &upd.phone);
+			clearBuffer();
+			test++;
+			fprintf(newrec, "%d %s %d/%d/%d %d %s %s\n", add.acc_no, upd.name, upd.dob.month, upd.dob.day, upd.dob.year, upd.age, upd.address, upd.phone);
+			printf("\n성공적으로 수정되었습니다!\n");
+		}
+	}
+	fclose(old);
+	fclose(newrec);
+	remove("record.dat");
+	rename("new.dat", "record.dat");
+	if (test == 0) printf("\n입력하신 계정 번호의 고객이 발견되지 않았습니다!!\a\a\a");
+	menu();
 	return;
 }
 
